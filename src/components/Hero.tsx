@@ -1,20 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch((error) => {
-        console.log("Autoplay was prevented by the browser:", error);
-      });
-    }
-  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20">
       {/* Background glow */}
@@ -38,14 +27,12 @@ export default function Hero() {
               }}
               className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[150px] h-[150px] pointer-events-none z-50 overflow-hidden"
             >
-              <video 
-                ref={videoRef}
-                src="/skate-boy.webm" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                className="w-full h-full object-contain"
+              <Image 
+                src="/skate-boy.gif" 
+                alt="Skateboarder Animation"
+                fill
+                className="object-contain"
+                unoptimized
               />
             </motion.div>
 
