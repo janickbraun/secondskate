@@ -40,10 +40,10 @@ export default function Navbar() {
           </Link>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="bg-primary text-black font-semibold px-5 py-2.5 sm:px-6 sm:py-3 text-base rounded-full flex items-center gap-2 hover:bg-primary-dark hover:scale-105 transition-all active:scale-95 shrink-0 whitespace-nowrap"
+            className="bg-primary text-black font-semibold px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full flex items-center gap-1.5 sm:gap-2 hover:bg-primary-dark hover:scale-105 transition-all active:scale-95 shrink-0 whitespace-nowrap"
           >
             <span>App holen</span>
-            <Download size={20} className="w-5 h-5 sm:w-[18px] sm:h-[18px] shrink-0" />
+            <Download className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0" />
           </button>
         </div>
       </motion.nav>
