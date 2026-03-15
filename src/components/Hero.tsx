@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function Hero() {
   return (
@@ -21,18 +21,16 @@ export default function Hero() {
               initial={{ x: "-100vw", y: 7 }}
               animate={{ x: "100vw" }}
               transition={{ 
-                duration: 6,
+                duration: typeof window !== "undefined" && window.innerWidth > 768 ? 16 : 6,
                 ease: "linear",
                 delay: 0
               }}
               className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[100px] h-[100px] pointer-events-none z-50 overflow-hidden"
             >
-              <Image 
-                src="/skate-boy.gif" 
-                alt="Skateboarder Animation"
-                fill
-                className="object-contain"
-                unoptimized
+              <DotLottieReact
+                src="https://lottie.host/80f2cd27-68ae-4336-ae47-eea2a0d4adbb/q4aoQlCQin.lottie"
+                loop
+                autoplay
               />
             </motion.div>
 
