@@ -19,9 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className="dark">
+    <html lang="de" className="dark" suppressHydrationWarning>
       <body
         className={`${inter.variable} antialiased selection:bg-primary selection:text-black`}
+        suppressHydrationWarning
       >
         {children}
         <CookieBanner />
