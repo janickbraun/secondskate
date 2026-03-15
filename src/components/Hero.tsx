@@ -18,7 +18,7 @@ export default function Hero() {
           <div className="relative w-full mt-16 sm:mt-0">
             {/* Skateboarder Video Animation */}
             <motion.div
-              initial={{ x: "-100vw", y: 7 }}
+              initial={{ x: "-50vw", y: 7 }}
               animate={{ x: "100vw" }}
               transition={{ 
                 duration: typeof window !== "undefined" && window.innerWidth > 768 ? 16 : 6,
