@@ -1,9 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MoveRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function ProblemSolution() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedImage]);
+
   return (
     <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -47,36 +62,71 @@ export default function ProblemSolution() {
             className="relative"
           >
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col items-center justify-center gap-4 relative overflow-hidden group">
+              <div 
+                className="bg-zinc-900 border border-zinc-800 p-4 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-4 relative overflow-hidden group cursor-pointer"
+                onClick={() => setSelectedImage("/nike-sb-kaputt.jpg")}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-24 h-32 bg-zinc-800 rounded-xl relative border border-dashed border-red-500/50 flex items-center justify-center">
-                  <span className="text-red-500/50 rotate-[-15deg] font-bold">Kaputt</span>
+                <div className="w-full aspect-square rounded-xl relative border-2 border-dashed border-red-500/80 overflow-hidden shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover:scale-105 transition-transform duration-300">
+                  <Image src="/nike-sb-kaputt.jpg" alt="Kaputter Schuh" fill className="object-cover" />
                 </div>
-                <div className="text-center">
+                <div className="text-center relative z-10">
                   <p className="font-semibold text-white">Goofy Front</p>
                   <p className="text-sm text-muted-foreground">Rechter Schuh</p>
                 </div>
               </div>
 
-              <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col items-center justify-center gap-4 relative overflow-hidden group">
+              <div 
+                className="bg-zinc-900 border border-zinc-800 p-4 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-4 relative overflow-hidden group cursor-pointer"
+                onClick={() => setSelectedImage("/nike-sb-ganz.jpg")}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-24 h-32 bg-zinc-800 rounded-xl relative border border-solid border-primary/50 shadow-[0_0_15px_rgba(57,255,20,0.1)] flex items-center justify-center">
-                  <span className="text-primary rotate-[15deg] font-bold">Wie Neu</span>
+                <div className="w-full aspect-square rounded-xl relative border-2 border-solid border-primary/80 shadow-[0_0_15px_rgba(57,255,20,0.2)] overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  <Image src="/nike-sb-ganz.jpg" alt="Wie neuer Schuh" fill className="object-cover" />
                 </div>
-                <div className="text-center">
+                <div className="text-center relative z-10">
                   <p className="font-semibold text-white">Goofy Back</p>
                   <p className="text-sm text-muted-foreground">Linker Schuh</p>
                 </div>
               </div>
             </div>
 
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-950 p-3 rounded-full border border-zinc-800 shadow-xl z-10 hidden md:block">
-              <MoveRight className="text-primary w-6 h-6" />
+            <div className="absolute left-1/2 top-[38%] md:top-[38%] -translate-x-1/2 -translate-y-1/2 bg-zinc-950 w-14 h-14 rounded-full border-2 border-zinc-800 shadow-xl z-20 hidden md:flex items-center justify-center">
+              <span className="text-primary font-black italic text-xl pr-1">VS</span>
             </div>
           </motion.div>
 
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-2xl aspect-square bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10"
+            >
+              <Image src={selectedImage} alt="Schuh Detailansicht" fill className="object-cover" />
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 bg-black/50 hover:bg-primary hover:text-black text-white p-3 rounded-full transition-colors backdrop-blur-md"
+              >
+                <X size={24} />
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

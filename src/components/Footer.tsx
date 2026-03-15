@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 text-center text-xs text-zinc-600">
-          &copy; {new Date().getFullYear()} secondskate. Alle Rechte vorbehalten. Für Skater, von Skatern.
+          &copy; {new Date().getFullYear()} secondskate. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>

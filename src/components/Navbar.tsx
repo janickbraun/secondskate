@@ -3,10 +3,27 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    const openModalListener = () => setIsModalOpen(true);
+    window.addEventListener("open-download-modal", openModalListener);
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("open-download-modal", openModalListener);
+    };
+  }, [isModalOpen]);
 
   return (
     <>
@@ -17,8 +34,9 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
-          <Link href="/" className="text-3xl sm:text-2xl font-bold tracking-tighter shrink-0">
-            second<span className="text-primary">skate</span>
+          <Link href="/" className="text-3xl sm:text-2xl font-bold tracking-tighter shrink-0 flex items-center gap-2">
+            <Image src="/secondskate-icon.svg" alt="secondskate Icon" width={40} height={40} className="w-10 h-10 sm:w-10 sm:h-10" />
+            <span>second<span className="text-primary">skate</span></span>
           </Link>
           <button 
             onClick={() => setIsModalOpen(true)}
