@@ -15,7 +15,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="relative w-full">
+          <div className="relative w-full mt-16 sm:mt-0">
             {/* Skateboarder Video Animation */}
             <motion.div
               initial={{ x: "-100vw", y: 7 }}
@@ -25,7 +25,7 @@ export default function Hero() {
                 ease: "linear",
                 delay: 0
               }}
-              className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[150px] h-[150px] pointer-events-none z-50 overflow-hidden"
+              className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[100px] h-[100px] pointer-events-none z-50 overflow-hidden"
             >
               <Image 
                 src="/skate-boy.gif" 
