@@ -61,9 +61,9 @@ export default function ProblemSolution() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2 md:gap-4">
               <div 
-                className="bg-zinc-900 border border-zinc-800 p-4 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-4 relative overflow-hidden group cursor-pointer"
+                className="bg-zinc-900 border border-zinc-800 p-2 sm:p-3 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-4 relative overflow-hidden group cursor-pointer"
                 onClick={() => setSelectedImage("/nike-sb-kaputt.jpg")}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -71,13 +71,12 @@ export default function ProblemSolution() {
                   <Image src="/nike-sb-kaputt.jpg" alt="Kaputter Schuh" fill className="object-cover" />
                 </div>
                 <div className="text-center relative z-10">
-                  <p className="font-semibold text-white">Goofy Front</p>
-                  <p className="text-sm text-muted-foreground">Rechter Schuh</p>
+                  <p className="font-semibold text-white">Rechter Schuh</p>
                 </div>
               </div>
 
               <div 
-                className="bg-zinc-900 border border-zinc-800 p-4 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-4 relative overflow-hidden group cursor-pointer"
+                className="bg-zinc-900 border border-zinc-800 p-2 sm:p-3 md:p-5 rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-4 relative overflow-hidden group cursor-pointer"
                 onClick={() => setSelectedImage("/nike-sb-ganz.jpg")}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -85,8 +84,7 @@ export default function ProblemSolution() {
                   <Image src="/nike-sb-ganz.jpg" alt="Wie neuer Schuh" fill className="object-cover" />
                 </div>
                 <div className="text-center relative z-10">
-                  <p className="font-semibold text-white">Goofy Back</p>
-                  <p className="text-sm text-muted-foreground">Linker Schuh</p>
+                  <p className="font-semibold text-white">Linker Schuh</p>
                 </div>
               </div>
             </div>

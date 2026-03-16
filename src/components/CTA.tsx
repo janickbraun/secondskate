@@ -9,7 +9,7 @@ export default function CTA() {
   };
 
   return (
-    <section className="py-24 bg-zinc-950 relative overflow-hidden border-t border-white/5 flex flex-col items-center">
+    <section className="py-24 bg-zinc-950 relative overflow-hidden flex flex-col items-center">
       <div className="max-w-4xl w-full px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

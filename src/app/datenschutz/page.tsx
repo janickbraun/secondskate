@@ -7,7 +7,8 @@ export default function Datenschutz() {
       <Navbar />
       
       <main className="flex-grow max-w-4xl mx-auto px-6 py-24 w-full">
-        <h1 className="text-4xl md:text-5xl font-bold mb-12">Datenschutzerklärung</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-2">Datenschutzerklärung</h1>
+        <p className="mt-4 mb-12 text-zinc-400">Stand: 16.03.2026</p>
         
         <div className="space-y-12 text-zinc-300">
           
@@ -27,11 +28,11 @@ export default function Datenschutz() {
             <h3 className="text-xl font-medium text-white mb-2">Hinweis zur verantwortlichen Stelle</h3>
             <p className="mb-2">Die verantwortliche Stelle für die Datenverarbeitung ist:</p>
             <p className="mb-2 bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
-              [Name des Betreibers / Firma]<br/>
-              [Straße und Hausnummer]<br/>
-              [PLZ und Ort]<br/>
-              Telefon: [Telefonnummer]<br/>
-              E-Mail: <a href="mailto:info@secondskate.de" className="text-primary hover:underline">info@secondskate.de</a>
+              Janick Braun<br/>
+              Ruhe am Bach 5d<br/>
+              82377 Penzberg<br/>
+              Telefon: +49 (0) 160 98640952<br/>
+              E-Mail: <a href="mailto:janick@grovider.de" className="text-primary hover:underline">janick@grovider.de</a>
             </p>
           </section>
 

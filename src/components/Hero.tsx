@@ -1,9 +1,53 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function Hero() {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    let isMounted = true;
+    
+    const animateSkater = async () => {
+      // Wait for 3 seconds before first appearance
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      while (isMounted) {
+        const duration = window.innerWidth > 768 ? 16 : 6;
+        
+        // Start facing right
+        controls.set({ x: "-50vw", scaleX: 1, y: 7 });
+        
+        // Move to right
+        await controls.start({
+          x: "100vw",
+          transition: { duration, ease: "linear" }
+        });
+        
+        if (!isMounted) break;
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        if (!isMounted) break;
+        
+        // Start facing left from the right side
+        controls.set({ x: "100vw", scaleX: -1, y: 7 });
+        
+        // Move to left
+        await controls.start({
+          x: "-50vw",
+          transition: { duration, ease: "linear" }
+        });
+        
+        if (!isMounted) break;
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      }
+    };
+
+    animateSkater();
+    return () => { isMounted = false; };
+  }, [controls]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20">
       {/* Background glow */}
@@ -18,17 +62,12 @@ export default function Hero() {
           <div className="relative w-full mt-16 sm:mt-0">
             {/* Skateboarder Video Animation */}
             <motion.div
-              initial={{ x: "-50vw", y: 7 }}
-              animate={{ x: "100vw" }}
-              transition={{ 
-                duration: typeof window !== "undefined" && window.innerWidth > 768 ? 16 : 6,
-                ease: "linear",
-                delay: 0
-              }}
-              className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[100px] h-[100px] pointer-events-none z-50 overflow-hidden"
+              animate={controls}
+              initial={{ x: "-50vw", y: 7, scaleX: 1 }}
+              className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[100px] h-[100px] pointer-events-none z-50 overflow-hidden brightness-0 invert"
             >
               <DotLottieReact
-                src="https://lottie.host/80f2cd27-68ae-4336-ae47-eea2a0d4adbb/q4aoQlCQin.lottie"
+                src="https://lottie.host/2cdda61f-f434-4e65-a65b-1d2a11d7ec42/GnJ16ic0sX.lottie"
                 loop
                 autoplay
               />

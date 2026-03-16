@@ -17,9 +17,9 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="w-full md:w-1/2 flex justify-center"
           >
-            <div className="relative w-64 md:w-80 aspect-[4/5] rounded-2xl border-4 border-zinc-800 overflow-hidden group">
+            <div className="relative w-64 md:w-80 aspect-square rounded-full border-4 border-zinc-800 overflow-hidden group">
               <div className="absolute inset-0 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                <Image src="/janick.jpg" alt="Janick Braun" fill className="object-cover" /> 
+                <Image src="/isar.jpg" alt="Janick Braun" fill className="object-cover" /> 
             </div>
           </motion.div>
 
