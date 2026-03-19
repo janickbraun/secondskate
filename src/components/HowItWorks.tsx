@@ -20,7 +20,7 @@ const steps = [
       <div className="w-8 h-8 relative">
         <Image 
           src="/skateboarding.svg" 
-          alt="Skateboarding" 
+          alt="Skateboarding-Icon" 
           fill
           className="object-contain inverted-primary-color"
           style={{ 

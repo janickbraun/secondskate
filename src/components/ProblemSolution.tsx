@@ -68,7 +68,7 @@ export default function ProblemSolution() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="w-full aspect-square rounded-xl relative border-2 border-dashed border-red-500/80 overflow-hidden shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover:scale-105 transition-transform duration-300">
-                  <Image src="/nike-sb-kaputt.jpg" alt="Kaputter Schuh" fill className="object-cover" />
+                  <Image src="/nike-sb-kaputt.jpg" alt="Kaputter rechter Schuh" fill className="object-cover" />
                 </div>
                 <div className="text-center relative z-10">
                   <p className="font-semibold text-white">Rechter Schuh</p>
@@ -81,7 +81,7 @@ export default function ProblemSolution() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="w-full aspect-square rounded-xl relative border-2 border-solid border-primary/80 shadow-[0_0_15px_rgba(57,255,20,0.2)] overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                  <Image src="/nike-sb-ganz.jpg" alt="Wie neuer Schuh" fill className="object-cover" />
+                  <Image src="/nike-sb-ganz.jpg" alt="Intakter linker Schuh" fill className="object-cover" />
                 </div>
                 <div className="text-center relative z-10">
                   <p className="font-semibold text-white">Linker Schuh</p>
