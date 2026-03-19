@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
@@ -9,7 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Einzelne Skateschuhe kaufen | Nur linker oder rechter Schuh | secondskate",
+  metadataBase: new URL("https://secondskate.de"),
+  title: "Einzelne Skateschuhe kaufen | secondskate",
   description:
     "Nur ein Skateschuh kaputt? Kaufe gezielt einzelne Skateschuhe statt ein ganzes Paar. Perfekt für Goofy und Regular Skater.",
 
@@ -30,8 +31,8 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",
-    //shortcut: "/favicon-16x16.png",
-    //apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
 
   openGraph: {
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Einzelne Skateschuhe kaufen | secondskate",
     description:
-      "Nur ein Skateschuh kaputt? Kaufe einfach einen einzelnen nach.",
+      "Nur ein Skateschuh kaputt? Kaufe einfach einen einzelnen statt ein ganzes Paar.",
     images: ["/og-image.png"],
   },
 
