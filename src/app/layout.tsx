@@ -9,16 +9,60 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "secondskate | Einzelne Skateschuhe kaufen & verkaufen",
-  description: "Zerstörst du auch immer nur den vorderen Schuh? Kaufe und verkaufe einzelne Skateschuhe für Goofy & Regular Skater.",
-  keywords: ["einzelne Skateschuhe", "Skateschuhe", "Goofy", "Regular", "linker Schuh", "rechter Schuh", "Skateboard Schuhe kaufen", "secondskate", "second skate", "secondhand schuhe", "gebrauchte schuhe", "secondhand skateschuhe", "gebrauchte skateschuhe", "skate schuhe kaputt", "skate schuhe kaputt links", "skate schuhe kaputt rechts"],
+  title: "Einzelne Skateschuhe kaufen | Nur linker oder rechter Schuh | secondskate",
+  description:
+    "Nur ein Skateschuh kaputt? Kaufe gezielt einzelne Skateschuhe statt ein ganzes Paar. Perfekt für Goofy und Regular Skater.",
+
+  keywords: [
+    "einzelne skateschuhe kaufen",
+    "nur einen schuh kaufen",
+    "linker skateschuh kaufen",
+    "rechter skateschuh kaufen",
+    "skateschuh vorne kaputt",
+    "goofy regular schuh unterschied",
+    "skateschuhe einzeln kaufen deutschland",
+    "secondskate"
+  ],
+
+  alternates: {
+    canonical: "https://secondskate.de",
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    //shortcut: "/favicon-16x16.png",
+    //apple: "/apple-touch-icon.png",
+  },
+
   openGraph: {
-    title: "secondskate | Einzelne Skateschuhe kaufen & verkaufen",
-    description: "Zerstörst du auch immer nur den vorderen Schuh? Kauf und verkaufe einzelne Skateschuhe basierend auf deiner Stance.",
+    title: "Einzelne Skateschuhe kaufen | secondskate",
+    description:
+      "Nur ein Schuh kaputt? Kauf dir einfach einen einzelnen Skateschuh statt ein ganzes Paar.",
     url: "https://secondskate.de",
     siteName: "secondskate",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Einzelne Skateschuhe kaufen auf secondskate",
+      },
+    ],
     locale: "de_DE",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Einzelne Skateschuhe kaufen | secondskate",
+    description:
+      "Nur ein Skateschuh kaputt? Kaufe einfach einen einzelnen nach.",
+    images: ["/og-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
