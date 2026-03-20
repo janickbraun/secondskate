@@ -12,9 +12,6 @@ export default function Hero() {
     let isMounted = true;
     
     const animateSkater = async () => {
-      // Wait for 3 seconds before first appearance
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
       while (isMounted) {
         const duration = window.innerWidth > 768 ? 16 : 6;
         
@@ -28,7 +25,7 @@ export default function Hero() {
         });
         
         if (!isMounted) break;
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         if (!isMounted) break;
         
         // Start facing left from the right side
@@ -41,7 +38,7 @@ export default function Hero() {
         });
         
         if (!isMounted) break;
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
     };
 
