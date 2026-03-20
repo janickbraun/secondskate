@@ -68,7 +68,7 @@ export default function ProblemSolution() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="w-full aspect-square rounded-xl relative border-2 border-dashed border-red-500/80 overflow-hidden shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover:scale-105 transition-transform duration-300">
-                  <Image src="/nike-sb-kaputt.jpg" alt="Kaputter rechter Schuh" fill className="object-cover" />
+                  <Image src="/nike-sb-kaputt.jpg" alt="Kaputter rechter Schuh" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
                 </div>
                 <div className="text-center relative z-10">
                   <p className="font-semibold text-white">Rechter Schuh</p>
@@ -81,7 +81,7 @@ export default function ProblemSolution() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="w-full aspect-square rounded-xl relative border-2 border-solid border-primary/80 shadow-[0_0_15px_rgba(57,255,20,0.2)] overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                  <Image src="/nike-sb-ganz.jpg" alt="Intakter linker Schuh" fill className="object-cover" />
+                  <Image src="/nike-sb-ganz.jpg" alt="Intakter linker Schuh" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
                 </div>
                 <div className="text-center relative z-10">
                   <p className="font-semibold text-white">Linker Schuh</p>
@@ -114,7 +114,7 @@ export default function ProblemSolution() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="relative w-full max-w-2xl aspect-square bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10"
             >
-              <Image src={selectedImage} alt="Schuh Detailansicht" fill className="object-cover" />
+              <Image src={selectedImage} alt="Schuh Detailansicht" fill sizes="(max-width: 768px) 100vw, 672px" className="object-cover" />
               <button 
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 bg-black/50 hover:bg-primary hover:text-black text-white p-3 rounded-full transition-colors backdrop-blur-md"

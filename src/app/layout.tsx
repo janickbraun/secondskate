@@ -2,6 +2,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
+import { Analytics } from "@vercel/analytics/next"
+
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://secondskate.de"),
   title: "Einzelne Skateschuhe kaufen | secondskate",
   description:
-    "Nur ein Skateschuh kaputt? Kaufe gezielt einzelne Skateschuhe statt ein ganzes Paar. Perfekt für Goofy und Regular Skater.",
+    "Nur ein Skateschuh kaputt? Kaufe einzelne Skateschuhe statt ein ganzes Paar. Perfekt für Goofy und Regular Skater.",
 
   keywords: [
     "einzelne skateschuhe kaufen",
@@ -80,6 +82,7 @@ export default function RootLayout({
       >
         {children}
         <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );
