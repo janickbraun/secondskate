@@ -32,7 +32,7 @@ export default function Datenschutz() {
               Ruhe am Bach 5d<br/>
               82377 Penzberg<br/>
               Telefon: +49 (0) 160 98640952<br/>
-              E-Mail: <a href="mailto:janick@grovider.de" className="text-primary hover:underline">janick@grovider.de</a>
+              E-Mail: <a href="mailto:janick@secondskate.de" className="text-primary hover:underline">janick@secondskate.de</a>
             </p>
           </section>
 
