@@ -81,7 +81,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
-        <CookieBanner />
+        {/* <CookieBanner /> */}
         <Analytics />
       </body>
     </html>

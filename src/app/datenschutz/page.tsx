@@ -49,7 +49,20 @@ export default function Datenschutz() {
             <h2 className="text-2xl font-semibold text-white mb-4">4. Analyse-Tools</h2>
             <h3 className="text-xl font-medium text-white mb-2">Vercel Analytics</h3>
             <p className="mb-4">
-              Wir nutzen zur Analyse unserer Website-Besuche den Dienst „Vercel Analytics“ der Vercel Inc., 440 N Barranca Ave #4133 Covina, CA 91723. Die Analyse erfolgt vollständig anonymisiert; es werden keine Cookies auf Ihrem Endgerät gespeichert und es werden keine personenbezogenen Daten erhoben, mit denen Sie persönlich identifiziert werden könnten. Wir erfassen lediglich technische Informationen wie Browsertyp, Betriebssystem und besuchte Seiten, um die Benutzerfreundlichkeit unserer Plattform zu verbessern. Da keine personenbezogenen Daten im Sinne der DSGVO verarbeitet werden und keine Tracking-Cookies zum Einsatz kommen, ist für die Nutzung von Vercel Analytics keine explizite Einwilligung erforderlich (Art. 6 Abs. 1 lit. f DSGVO - berechtigtes Interesse).
+              Wir nutzen zur Analyse und Auswertung der Performance unserer Website den Dienst „Vercel Analytics" des Anbieters Vercel Inc., 440 N Barranca Ave #4133 Covina, CA 91723, USA.
+            </p>
+            <h4 className="text-lg font-medium text-white mb-2">Art der Datenverarbeitung und Verzicht auf Cookies</h4>
+            <p className="mb-4">
+              Vercel Analytics ist datenschutzfreundlich konzipiert und verwendet keine Cookies oder ähnliche Technologien, die Informationen auf Ihrem Endgerät speichern oder auslesen. Beim Aufruf unserer Website werden lediglich technische Informationen wie Browsertyp, Betriebssystem und besuchte Seiten erfasst, um die Benutzerfreundlichkeit unserer Plattform zu verbessern.<br/><br/>
+              Hierbei wird Ihre IP-Adresse nur kurzzeitig verarbeitet, um daraus einen anonymisierten Hash-Wert zu generieren, der täglich automatisch verfällt. Die IP-Adresse selbst wird nicht gespeichert. Es ist uns nicht möglich, Sie persönlich zu identifizieren oder websiteübergreifende Tracking-Profile zu erstellen.
+            </p>
+            <h4 className="text-lg font-medium text-white mb-2">Rechtsgrundlage</h4>
+            <p className="mb-4">
+              Da keine Tracking-Cookies zum Einsatz kommen und die Datenverarbeitung stark anonymisiert abläuft, erfolgt die Nutzung von Vercel Analytics ohne Einwilligung auf Grundlage unseres berechtigten Interesses an einer statistischen Auswertung des Nutzerverhaltens zur Optimierung unseres Webangebots (Art. 6 Abs. 1 lit. f DSGVO).
+            </p>
+            <h4 className="text-lg font-medium text-white mb-2">Auftragsverarbeitung (AVV) und Datentransfer</h4>
+            <p className="mb-4">
+              Wir haben mit Vercel einen Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO geschlossen. Dieser stellt sicher, dass Vercel die Daten strikt nach unseren Weisungen und konform zur DSGVO verarbeitet. Da Vercel ein US-Unternehmen ist, kann eine Datenverarbeitung in den USA nicht ausgeschlossen werden. Vercel Inc. ist nach dem EU-US Data Privacy Framework (DPF) zertifiziert. Zudem ist der Datentransfer durch den Abschluss von Standardvertragsklauseln (SCC) der EU-Kommission abgesichert, um ein angemessenes Datenschutzniveau zu gewährleisten.
             </p>
           </section>
 

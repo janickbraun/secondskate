@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import Lottie from "lottie-react";
+import skaterAnimation from "../../public/skate-animation.json";
 
 export default function Hero() {
   const controls = useAnimation();
@@ -66,10 +67,11 @@ export default function Hero() {
               initial={{ x: "-50vw", y: 7, scaleX: 1 }}
               className="absolute top-0 -translate-y-[100%] md:-translate-y-full w-[100px] h-[100px] pointer-events-none z-50 overflow-hidden brightness-0 invert"
             >
-              <DotLottieReact
-                src="https://lottie.host/2cdda61f-f434-4e65-a65b-1d2a11d7ec42/GnJ16ic0sX.lottie"
+              <Lottie
+                animationData={skaterAnimation}
                 loop
                 autoplay
+                style={{ width: "100%", height: "100%" }}
               />
             </motion.div>
 
