@@ -46,9 +46,11 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">4. Analyse-Tools und Werbung</h2>
-            <h3 className="text-xl font-medium text-white mb-2">Google Analytics</h3>
-            <p className="mb-4">Diese App nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics ermöglicht es uns, das Verhalten der Nutzer zu analysieren. Wir haben Google Analytics so konfiguriert, dass IP-Adressen anonymisiert werden (IP-Masking). Die Nutzung dieses Tools erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit widerrufen können.</p>
+            <h2 className="text-2xl font-semibold text-white mb-4">4. Analyse-Tools</h2>
+            <h3 className="text-xl font-medium text-white mb-2">Vercel Analytics</h3>
+            <p className="mb-4">
+              Wir nutzen zur Analyse unserer Website-Besuche den Dienst „Vercel Analytics“ der Vercel Inc., 440 N Barranca Ave #4133 Covina, CA 91723. Die Analyse erfolgt vollständig anonymisiert; es werden keine Cookies auf Ihrem Endgerät gespeichert und es werden keine personenbezogenen Daten erhoben, mit denen Sie persönlich identifiziert werden könnten. Wir erfassen lediglich technische Informationen wie Browsertyp, Betriebssystem und besuchte Seiten, um die Benutzerfreundlichkeit unserer Plattform zu verbessern. Da keine personenbezogenen Daten im Sinne der DSGVO verarbeitet werden und keine Tracking-Cookies zum Einsatz kommen, ist für die Nutzung von Vercel Analytics keine explizite Einwilligung erforderlich (Art. 6 Abs. 1 lit. f DSGVO - berechtigtes Interesse).
+            </p>
           </section>
 
           <section>
