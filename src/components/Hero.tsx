@@ -77,7 +77,7 @@ export default function Hero() {
               <span className="text-primary">nur einen Schuh?</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Kaufe und verkaufe einzelne Skateschuhe.
+              Kaufe gemeinsam einzelne Skateschuhe.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
