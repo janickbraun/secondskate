@@ -17,13 +17,13 @@ export default function Footer() {
           </div>
           
           <div className="flex gap-4 md:w-1/3 justify-center md:justify-end w-full">
-            <a href="https://www.instagram.com/secondskate.de" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:text-primary hover:bg-zinc-800 transition-all">
+            <a href="https://www.instagram.com/secondskate.de" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-primary transition-all">
               <Instagram size={20} />
             </a>
           </div>
         </div>
         
-        <div className="mt-8 text-center text-xs text-zinc-600">
+        <div className="mt-8 text-center text-xs text-zinc-500">
           &copy; {new Date().getFullYear()} secondskate. Alle Rechte vorbehalten.
         </div>
       </div>

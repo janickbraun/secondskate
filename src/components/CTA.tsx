@@ -29,7 +29,7 @@ export default function CTA() {
             
             <button
               onClick={openModal}
-              className="relative bg-primary text-black font-bold px-8 py-4 text-lg rounded-full flex items-center gap-3 hover:scale-105 transition-all active:scale-95 z-10 ring-2 ring-primary/50"
+              className="relative bg-primary text-black font-bold px-8 py-4 text-lg rounded-full flex items-center gap-3 hover:scale-105 transition-all active:scale-95 z-10"
             >
               <span>Jetzt herunterladen</span>
               <Download size={24} />

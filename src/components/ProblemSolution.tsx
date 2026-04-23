@@ -35,7 +35,7 @@ export default function ProblemSolution() {
               Warum 2 kaufen, wenn nur <span className="text-primary">einer kaputt</span> ist?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Jeder Skater kennt es: Der vordere Schuh geht viel schneller kaputt als der hintere. secondskate verbindet Goofy- und Regular-Skater, damit ihr eure Schuhe tauschen könnt.
+              secondskate verbindet Goofy- und Regular-Skater, damit ihr gemeinsam ein Paar Schuhe kaufen könnt, und dann jeweils euren kaputten Schuh ersetzen könnt.
             </p>
             <ul className="space-y-4">
               {[
