@@ -69,11 +69,11 @@ export default function RoleGraphic() {
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center max-w-6xl mx-auto">
       {/* Graphic Side */}
-      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 pb-24 md:pb-24 border border-zinc-800 shadow-2xl md:min-h-0 md:aspect-square lg:aspect-[3/2] flex flex-col items-center justify-center overflow-hidden">
+      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 md:pb-24 border border-zinc-800 shadow-2xl md:aspect-square lg:aspect-[3/2] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-        <div className="relative w-full max-w-[600px] mt-0 md:mt-[-40px]" style={{ aspectRatio: '5/4' }}>
+        <div className="relative w-full max-w-[600px] shrink-0 mb-4 md:mb-0 mt-0 md:mt-[-40px]" style={{ aspectRatio: '5/4' }}>
           {/* SVG Lines */}
           <svg
             key={currentStep || 'none'}
@@ -323,8 +323,30 @@ export default function RoleGraphic() {
           </div>
         </div>
 
+        {/* Mobile Step Description Bubble */}
+        <div className="w-full max-w-[270px] px-2 md:hidden z-40 transition-all duration-300 pointer-events-none mb-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeStep || "start"}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-xl px-3 py-2 shadow-2xl text-center flex items-center justify-center min-h-[50px] w-full"
+            >
+              {!activeStep ? (
+                <p className="text-zinc-400 text-xs font-medium">Klicke auf Start, um den Ablauf zu sehen.</p>
+              ) : (
+                <p className="text-zinc-100 text-sm font-semibold leading-snug">
+                  {stepsList.find(s => s.id === activeStep)?.text}
+                </p>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
         {/* Navigation Buttons */}
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-4 z-50">
+        <div className="relative md:absolute w-full flex justify-center gap-4 z-50 md:bottom-6">
           <button 
             onClick={handlePrev}
             disabled={!activeStep || activeStep === stepsList[0].id}
@@ -353,7 +375,7 @@ export default function RoleGraphic() {
       </div>
 
       {/* Steps Timeline Sidebar */}
-      <div className="flex flex-col gap-10 w-full md:w-[35%] relative mt-8 md:mt-0 pl-4 md:pl-0">
+      <div className="hidden md:flex flex-col gap-10 w-full md:w-[35%] relative mt-8 md:mt-0 pl-4 md:pl-0">
         {stepsList.map((step, index) => (
           <button
             key={step.id}
