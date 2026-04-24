@@ -76,16 +76,17 @@ export default function RoleGraphic() {
         <div className="relative w-full max-w-[600px] mt-0 md:mt-[-40px]" style={{ aspectRatio: '5/4' }}>
           {/* SVG Lines */}
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
+            key={currentStep || 'none'}
+            className="absolute inset-0 w-full h-full pointer-events-none transition-all duration-300"
             viewBox="50 0 500 400"
             preserveAspectRatio="xMidYMid meet"
           >
             <defs>
-              <marker id="arrowhead-zinc" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                <path d="M 2 2 L 8 5 L 2 8 Z" fill="#52525b" stroke="#52525b" strokeWidth="1" strokeLinejoin="round" />
+              <marker id="arrowhead-zinc" markerWidth="22" markerHeight="16" refX="15" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M 5 2 L 17 7.2 C 19 8 19 8 17 8.8 L 5 14 C 3 15 3 1 5 2 Z" fill="#52525b" stroke="#52525b" strokeWidth="1" strokeLinejoin="round" />
               </marker>
-              <marker id="arrowhead-primary" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                <path d="M 2 2 L 8 5 L 2 8 Z" fill="#39FF14" stroke="#39FF14" strokeWidth="1" strokeLinejoin="round" />
+              <marker id="arrowhead-primary" markerWidth="22" markerHeight="16" refX="15" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M 5 2 L 17 7.2 C 19 8 19 8 17 8.8 L 5 14 C 3 15 3 1 5 2 Z" fill="#39FF14" stroke="#39FF14" strokeWidth="1" strokeLinejoin="round" />
               </marker>
             </defs>
 
@@ -107,7 +108,7 @@ export default function RoleGraphic() {
                 className="transition-all duration-300"
               />
               <text
-                x="210" y="210"
+                x="205" y="210"
                 fill={currentStep === "buy" ? "#39FF14" : "#a1a1aa"}
                 className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
               >
