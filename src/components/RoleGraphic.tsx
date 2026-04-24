@@ -69,15 +69,15 @@ export default function RoleGraphic() {
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center max-w-6xl mx-auto">
       {/* Graphic Side */}
-      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-6 border border-zinc-800 shadow-2xl aspect-[4/3] flex items-center justify-center overflow-hidden">
+      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 pb-20 md:pb-6 border border-zinc-800 shadow-2xl md:min-h-0 md:aspect-[4/3] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-        <div className="relative w-[300px] h-[300px] md:w-[600px] md:h-[400px] scale-[0.85] md:scale-100">
+        <div className="relative w-full max-w-[600px] mt-4 md:mt-0" style={{ aspectRatio: '5/4' }}>
           {/* SVG Lines */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 600 400"
+            viewBox="50 0 500 400"
             preserveAspectRatio="xMidYMid meet"
           >
             <defs>
@@ -96,9 +96,9 @@ export default function RoleGraphic() {
               onMouseLeave={() => setHoveredStep(null)}
               onClick={() => handleInteraction("buy")}
             >
-              <line x1="220" y1="280" x2="169" y2="145" stroke="transparent" strokeWidth="30" />
+              <line x1="206" y1="265" x2="185" y2="165" stroke="transparent" strokeWidth="30" />
               <line
-                x1="220" y1="280" x2="169" y2="145"
+                x1="206" y1="265" x2="185" y2="165"
                 stroke={currentStep === "buy" ? "#39FF14" : "#52525b"}
                 strokeWidth="3"
                 strokeDasharray="6,6"
@@ -107,9 +107,9 @@ export default function RoleGraphic() {
                 className="transition-all duration-300"
               />
               <text
-                x="200" y="210"
+                x="210" y="210"
                 fill={currentStep === "buy" ? "#39FF14" : "#a1a1aa"}
-                className="text-lg font-bold transition-colors duration-300"
+                className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
               >
                 100%
               </text>
@@ -122,9 +122,9 @@ export default function RoleGraphic() {
               onMouseLeave={() => setHoveredStep(null)}
               onClick={() => handleInteraction("ship_pair")}
             >
-              <line x1="129" y1="145" x2="180" y2="280" stroke="transparent" strokeWidth="30" />
+              <line x1="146" y1="165" x2="167" y2="265" stroke="transparent" strokeWidth="30" />
               <line
-                x1="129" y1="145" x2="180" y2="280"
+                x1="146" y1="165" x2="167" y2="265"
                 stroke={currentStep === "ship_pair" ? "#39FF14" : "#52525b"}
                 strokeWidth="3"
                 strokeLinecap="round"
@@ -140,9 +140,9 @@ export default function RoleGraphic() {
               onMouseLeave={() => setHoveredStep(null)}
               onClick={() => handleInteraction("pay_half")}
             >
-              <line x1="480" y1="280" x2="429" y2="145" stroke="transparent" strokeWidth="30" />
+              <line x1="475" y1="265" x2="437" y2="165" stroke="transparent" strokeWidth="30" />
               <line
-                x1="480" y1="280" x2="429" y2="145"
+                x1="475" y1="265" x2="437" y2="165"
                 stroke={currentStep === "pay_half" ? "#39FF14" : "#52525b"}
                 strokeWidth="3"
                 strokeDasharray="6,6"
@@ -151,9 +151,9 @@ export default function RoleGraphic() {
                 className="transition-all duration-300"
               />
               <text
-                x="460" y="210"
+                x="465" y="210"
                 fill={currentStep === "pay_half" ? "#39FF14" : "#a1a1aa"}
-                className="text-lg font-bold transition-colors duration-300"
+                className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
               >
                 50%
               </text>
@@ -166,9 +166,9 @@ export default function RoleGraphic() {
               onMouseLeave={() => setHoveredStep(null)}
               onClick={() => handleInteraction("escrow_payout")}
             >
-              <line x1="395" y1="150" x2="235" y2="292" stroke="transparent" strokeWidth="30" />
+              <line x1="378" y1="170" x2="250" y2="275" stroke="transparent" strokeWidth="30" />
               <line
-                x1="395" y1="150" x2="235" y2="292"
+                x1="378" y1="170" x2="250" y2="275"
                 stroke={currentStep === "escrow_payout" ? "#39FF14" : "#52525b"}
                 strokeWidth="3"
                 strokeDasharray="6,6"
@@ -177,9 +177,9 @@ export default function RoleGraphic() {
                 className="transition-all duration-300"
               />
               <text
-                x="348" y="210"
+                x="350" y="210"
                 fill={currentStep === "escrow_payout" ? "#39FF14" : "#a1a1aa"}
-                className="text-lg font-bold transition-colors duration-300"
+                className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
               >
                 50%
               </text>
@@ -192,9 +192,9 @@ export default function RoleGraphic() {
               onMouseLeave={() => setHoveredStep(null)}
               onClick={() => handleInteraction("ship_single")}
             >
-              <line x1="235" y1="320" x2="465" y2="320" stroke="transparent" strokeWidth="30" />
+              <line x1="245" y1="320" x2="455" y2="320" stroke="transparent" strokeWidth="30" />
               <line
-                x1="235" y1="320" x2="465" y2="320"
+                x1="245" y1="320" x2="455" y2="320"
                 stroke={currentStep === "ship_single" ? "#39FF14" : "#52525b"}
                 strokeWidth="3"
                 strokeLinecap="round"
@@ -206,13 +206,13 @@ export default function RoleGraphic() {
 
           {/* Nodes */}
           <div 
-            className={`absolute top-[90px] left-[150px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "shop" ? "z-50" : "z-30"}`}
+            className={`absolute left-[20%] top-[22.5%] md:top-[28%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "shop" ? "z-50" : "z-30"}`}
             onMouseEnter={() => setHoveredNode("shop")}
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-                <Store className="text-zinc-200" size={32} />
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                <Store className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
               </div>
               
               <AnimatePresence>
@@ -229,17 +229,17 @@ export default function RoleGraphic() {
                 )}
               </AnimatePresence>
             </div>
-            <span className="text-zinc-400 text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors">Externer Shop</span>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">Externer Shop</span>
           </div>
 
           <div 
-            className={`absolute top-[90px] left-[410px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "secondskate" ? "z-50" : "z-30"}`}
+            className={`absolute left-[72%] top-[22.5%] md:top-[28%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "secondskate" ? "z-50" : "z-30"}`}
             onMouseEnter={() => setHoveredNode("secondskate")}
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
-                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain" />
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
+                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain w-8 h-8 md:w-10 md:h-10" />
               </div>
 
               <AnimatePresence>
@@ -256,17 +256,17 @@ export default function RoleGraphic() {
                 )}
               </AnimatePresence>
             </div>
-            <span className="text-zinc-400 text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors">secondskate</span>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">secondskate</span>
           </div>
 
           <div 
-            className={`absolute top-[330px] left-[200px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "aktiv" ? "z-50" : "z-30"}`}
+            className={`absolute left-[30%] top-[82.5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "aktiv" ? "z-50" : "z-30"}`}
             onMouseEnter={() => setHoveredNode("aktiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-16 h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <User className="text-zinc-200" size={32} />
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
+                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
               </div>
 
               <AnimatePresence>
@@ -283,17 +283,17 @@ export default function RoleGraphic() {
                 )}
               </AnimatePresence>
             </div>
-            <span className="text-zinc-400 text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors">Aktiv</span>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">Aktiv</span>
           </div>
 
           <div 
-            className={`absolute top-[330px] left-[500px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "passiv" ? "z-50" : "z-30"}`}
+            className={`absolute left-[90%] top-[82.5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "passiv" ? "z-50" : "z-30"}`}
             onMouseEnter={() => setHoveredNode("passiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-16 h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <User className="text-zinc-200" size={32} />
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
+                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
               </div>
 
               <AnimatePresence>
@@ -310,14 +310,14 @@ export default function RoleGraphic() {
                 )}
               </AnimatePresence>
             </div>
-            <span className="text-zinc-400 text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors">Passiv</span>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">Passiv</span>
           </div>
 
-          <div className={`absolute top-[200px] left-[130px] -translate-x-1/2 -translate-y-1/2 w-12 h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_pair' ? 'scale-125' : ''}`}>
+          <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_pair' ? 'scale-125' : ''}`} style={{ left: '16%', top: '50%' }}>
             <Image src="/shoes-icon.png" alt="Schuhpaar" fill className={`object-contain transition-opacity duration-300 ${currentStep === 'ship_pair' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
           </div>
 
-          <div className={`absolute top-[320px] left-[350px] -translate-x-1/2 -translate-y-1/2 w-12 h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_single' ? 'scale-125' : ''}`}>
+          <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_single' ? 'scale-125' : ''}`} style={{ left: '60%', top: '80%' }}>
             <Image src="/single-shoe-icon.png" alt="Einzelner Schuh" fill className={`object-contain rounded-lg transition-opacity duration-300 ${currentStep === 'ship_single' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
           </div>
         </div>
