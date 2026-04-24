@@ -5,41 +5,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Store, User, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
-type StepId = "buy" | "ship_pair" | "pay_half" | "ship_single" | "escrow_payout";
+type StepId = "initial" | "buy" | "ship_pair" | "pay_half" | "ship_single" | "escrow_payout";
 
 export default function RoleGraphic() {
-  const [hoveredStep, setHoveredStep] = useState<StepId | null>(null);
-  const [activeStep, setActiveStep] = useState<StepId | null>(null);
+  const [activeStep, setActiveStep] = useState<StepId>("initial");
 
   const currentStep = activeStep;
 
   const stepsList: { id: StepId; text: string }[] = [
-    { id: "pay_half", text: "1. Passiv zahlt 50%" },
-    { id: "buy", text: "2. Aktiv bestellt Paar von Shop" },
-    { id: "ship_pair", text: "3. Aktiv erhält das Paar" },
-    { id: "ship_single", text: "4. Aktiv schickt den einzelnen Schuh weiter" },
-    { id: "escrow_payout", text: "5. Aktiv erhält sein Geld, sobald der Schuh bei Passiv ankam." }
+    { id: "initial", text: "1. Aktiv will den linken Schuh, Passiv den rechten Schuh" },
+    { id: "pay_half", text: "2. Passiv zahlt 50% des Gesamtpreises" },
+    { id: "buy", text: "3. Aktiv bestellt Paar von Shop (z.B. Blue Tomato)" },
+    { id: "ship_pair", text: "4. Aktiv erhält das Paar, und behält seinen Schuh" },
+    { id: "ship_single", text: "5. Aktiv schickt den einzelnen Schuh weiter" },
+    { id: "escrow_payout", text: "6. Aktiv erhält sein Geld, sobald der Schuh bei Passiv ankam." }
   ];
 
   const handleInteraction = (id: StepId) => {
-    setActiveStep(activeStep === id ? null : id);
+    setActiveStep(id);
   };
 
   const handlePrev = () => {
-    if (!activeStep) {
-      setActiveStep(stepsList[stepsList.length - 1].id);
-      return;
-    }
     const currentIndex = stepsList.findIndex((s) => s.id === activeStep);
     const prevIndex = (currentIndex - 1 + stepsList.length) % stepsList.length;
     setActiveStep(stepsList[prevIndex].id);
   };
 
   const handleNext = () => {
-    if (!activeStep) {
-      setActiveStep(stepsList[0].id);
-      return;
-    }
     const currentIndex = stepsList.findIndex((s) => s.id === activeStep);
     const nextIndex = (currentIndex + 1) % stepsList.length;
     setActiveStep(stepsList[nextIndex].id);
@@ -180,26 +172,19 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("shop")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-                <Store className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
-              </div>
-              
-              <AnimatePresence>
-                {hoveredNode === "shop" && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9, x: -10 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, x: -10 }}
-                    className="absolute left-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
-                  >
-                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.shop.desc}</p>
-                    <div className="absolute right-full top-1/2 -translate-y-1/2 border-8 border-transparent border-r-zinc-800" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
+              hoveredNode === "shop" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
+            }`}>
+              <Store className={hoveredNode === "shop" ? "text-[#39FF14]" : "text-zinc-400"} size={32} />
             </div>
-            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">Externer Shop</span>
+            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.shop.title}</p>
+            
+            {/* Tooltip */}
+            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
+              hoveredNode === "shop" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            }`}>
+              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.shop.desc}</p>
+            </div>
           </div>
 
           <div 
@@ -207,26 +192,18 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("secondskate")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
-                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain w-8 h-8 md:w-10 md:h-10" />
-              </div>
-
-              <AnimatePresence>
-                {hoveredNode === "secondskate" && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9, x: 10 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, x: 10 }}
-                    className="absolute right-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
-                  >
-                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.secondskate.desc}</p>
-                    <div className="absolute left-full top-1/2 -translate-y-1/2 border-8 border-transparent border-l-zinc-800" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
+              hoveredNode === "secondskate" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
+            }`}>
+              <Image src="/favicon.ico" alt="secondskate" width={32} height={32} className={hoveredNode === "secondskate" ? "" : "grayscale opacity-50"} />
             </div>
-            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">secondskate</span>
+            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.secondskate.title}</p>
+
+            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
+              hoveredNode === "secondskate" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            }`}>
+              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.secondskate.desc}</p>
+            </div>
           </div>
 
           <div 
@@ -234,26 +211,18 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("aktiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
-              </div>
-
-              <AnimatePresence>
-                {hoveredNode === "aktiv" && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9, x: -10 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, x: -10 }}
-                    className="absolute left-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
-                  >
-                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.aktiv.desc}</p>
-                    <div className="absolute right-full top-1/2 -translate-y-1/2 border-8 border-transparent border-r-zinc-800" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
+              hoveredNode === "aktiv" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
+            }`}>
+              <User className={hoveredNode === "aktiv" ? "text-[#39FF14]" : "text-zinc-400"} size={32} />
             </div>
-            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">Aktiv</span>
+            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.aktiv.title}</p>
+
+            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
+              hoveredNode === "aktiv" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            }`}>
+              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.aktiv.desc}</p>
+            </div>
           </div>
 
           <div 
@@ -261,30 +230,25 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("passiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
-              </div>
-
-              <AnimatePresence>
-                {hoveredNode === "passiv" && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9, x: 10 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, x: 10 }}
-                    className="absolute right-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
-                  >
-                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.passiv.desc}</p>
-                    <div className="absolute left-full top-1/2 -translate-y-1/2 border-8 border-transparent border-l-zinc-800" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
+              hoveredNode === "passiv" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
+            }`}>
+              <User className={hoveredNode === "passiv" ? "text-[#39FF14]" : "text-zinc-400"} size={32} />
             </div>
-            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">Passiv</span>
+            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.passiv.title}</p>
+
+            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
+              hoveredNode === "passiv" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            }`}>
+              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.passiv.desc}</p>
+            </div>
           </div>
 
-          <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_pair' ? 'scale-125' : ''}`} style={{ left: '16%', top: '50%' }}>
-            <Image src="/shoes-icon.png" alt="Schuhpaar" fill className={`object-contain transition-opacity duration-300 ${currentStep === 'ship_pair' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
+          {/* Items / Shoes */}
+          <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${currentStep === 'buy' ? 'scale-125 z-40' : 'z-20'}`} style={{ left: '16%', top: '50%' }}>
+            <div className="relative w-10 h-10 md:w-14 md:h-14">
+              <Image src="/shoes-icon.png" alt="Schuhpaar" fill className={`object-contain transition-opacity duration-300 ${currentStep === 'buy' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
+            </div>
           </div>
 
           <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_single' ? 'scale-125' : ''}`} style={{ left: '60%', top: '80%' }}>
@@ -293,7 +257,7 @@ export default function RoleGraphic() {
         </div>
 
         {/* Mobile Step Description Bubble */}
-        <div className="w-full max-w-[270px] px-2 md:hidden z-40 transition-all duration-300 pointer-events-none mb-4">
+        <div className="w-[270px] md:hidden z-40 transition-all duration-300 pointer-events-none mb-4 mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep || "start"}
@@ -303,13 +267,9 @@ export default function RoleGraphic() {
               transition={{ duration: 0.2 }}
               className="bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-xl px-3 py-2 shadow-2xl text-center flex items-center justify-center min-h-[50px] w-full"
             >
-              {!activeStep ? (
-                <p className="text-zinc-400 text-xs font-medium">Klicke auf Start, um den Ablauf zu sehen.</p>
-              ) : (
-                <p className="text-zinc-100 text-sm font-semibold leading-snug">
-                  {stepsList.find(s => s.id === activeStep)?.text}
-                </p>
-              )}
+              <p className="text-zinc-100 text-sm font-semibold leading-snug">
+                {stepsList.find(s => s.id === activeStep)?.text}
+              </p>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -318,9 +278,9 @@ export default function RoleGraphic() {
         <div className="relative md:absolute w-full flex justify-center gap-4 z-50 md:bottom-6">
           <button 
             onClick={handlePrev}
-            disabled={!activeStep || activeStep === stepsList[0].id}
-            className={`flex items-center gap-2 px-4 py-2 bg-zinc-900 border rounded-lg text-sm transition-colors ${
-              !activeStep || activeStep === stepsList[0].id
+            disabled={activeStep === stepsList[0].id}
+            className={`flex items-center justify-center gap-2 w-[125px] py-2 bg-zinc-900 border rounded-lg text-sm transition-colors ${
+              activeStep === stepsList[0].id
                 ? "border-zinc-800 text-zinc-600 cursor-not-allowed opacity-50"
                 : "border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white"
             }`}
@@ -331,13 +291,15 @@ export default function RoleGraphic() {
           <button 
             onClick={handleNext}
             disabled={activeStep === stepsList[stepsList.length - 1].id}
-            className={`flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-colors ${
+            className={`flex items-center justify-center gap-2 w-[125px] py-2 border rounded-lg text-sm font-medium transition-colors ${
               activeStep === stepsList[stepsList.length - 1].id
                 ? "bg-zinc-900 border-zinc-800 text-zinc-600 cursor-not-allowed opacity-50"
                 : "bg-[#39FF14]/10 border-[#39FF14]/30 hover:border-[#39FF14] hover:bg-[#39FF14]/20 text-[#39FF14]"
             }`}
           >
-            {!activeStep ? "Start" : "Nächster"}
+            <span className="truncate">
+              {activeStep === "initial" ? "Starten" : "Nächster"}
+            </span>
             <ChevronRight size={16} />
           </button>
         </div>
