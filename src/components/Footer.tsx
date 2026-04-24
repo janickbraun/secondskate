@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-8 text-center text-xs text-zinc-500">
+        <div className="mt-8 text-center text-xs text-zinc-400">
           &copy; {new Date().getFullYear()} secondskate. Alle Rechte vorbehalten.
         </div>
       </div>
