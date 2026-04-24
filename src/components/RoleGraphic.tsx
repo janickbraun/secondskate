@@ -172,19 +172,26 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("shop")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
-              hoveredNode === "shop" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
-            }`}>
-              <Store className={hoveredNode === "shop" ? "text-[#39FF14]" : "text-zinc-400"} size={32} />
+            <div className="relative">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
+                <Store className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
+              </div>
+              
+              <AnimatePresence>
+                {hoveredNode === "shop" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: -10 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: -10 }}
+                    className="absolute left-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
+                  >
+                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.shop.desc}</p>
+                    <div className="absolute right-full top-1/2 -translate-y-1/2 border-8 border-transparent border-r-zinc-800" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.shop.title}</p>
-            
-            {/* Tooltip */}
-            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
-              hoveredNode === "shop" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}>
-              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.shop.desc}</p>
-            </div>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">{nodeInfo.shop.title}</span>
           </div>
 
           <div 
@@ -192,18 +199,26 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("secondskate")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
-              hoveredNode === "secondskate" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
-            }`}>
-              <Image src="/favicon.ico" alt="secondskate" width={32} height={32} className={hoveredNode === "secondskate" ? "" : "grayscale opacity-50"} />
-            </div>
-            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.secondskate.title}</p>
+            <div className="relative">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
+                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain w-8 h-8 md:w-10 md:h-10" />
+              </div>
 
-            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
-              hoveredNode === "secondskate" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}>
-              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.secondskate.desc}</p>
+              <AnimatePresence>
+                {hoveredNode === "secondskate" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: 10 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: 10 }}
+                    className="absolute right-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
+                  >
+                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.secondskate.desc}</p>
+                    <div className="absolute left-full top-1/2 -translate-y-1/2 border-8 border-transparent border-l-zinc-800" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">{nodeInfo.secondskate.title}</span>
           </div>
 
           <div 
@@ -211,18 +226,26 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("aktiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
-              hoveredNode === "aktiv" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
-            }`}>
-              <User className={hoveredNode === "aktiv" ? "text-[#39FF14]" : "text-zinc-400"} size={32} />
-            </div>
-            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.aktiv.title}</p>
+            <div className="relative">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
+                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
+              </div>
 
-            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
-              hoveredNode === "aktiv" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}>
-              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.aktiv.desc}</p>
+              <AnimatePresence>
+                {hoveredNode === "aktiv" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: -10 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: -10 }}
+                    className="absolute left-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
+                  >
+                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.aktiv.desc}</p>
+                    <div className="absolute right-full top-1/2 -translate-y-1/2 border-8 border-transparent border-r-zinc-800" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">{nodeInfo.aktiv.title}</span>
           </div>
 
           <div 
@@ -230,24 +253,32 @@ export default function RoleGraphic() {
             onMouseEnter={() => setHoveredNode("passiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
-            <div className={`p-4 rounded-2xl border-2 transition-all duration-300 ${
-              hoveredNode === "passiv" ? "bg-zinc-900 border-[#39FF14] shadow-[0_0_20px_rgba(57,255,20,0.2)]" : "bg-zinc-950 border-zinc-800"
-            }`}>
-              <User className={hoveredNode === "passiv" ? "text-[#39FF14]" : "text-zinc-400"} size={32} />
-            </div>
-            <p className="mt-2 text-xs md:text-sm font-bold text-zinc-500 text-center whitespace-nowrap">{nodeInfo.passiv.title}</p>
+            <div className="relative">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
+                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
+              </div>
 
-            <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none ${
-              hoveredNode === "passiv" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}>
-              <p className="text-xs text-zinc-300 leading-relaxed text-center">{nodeInfo.passiv.desc}</p>
+              <AnimatePresence>
+                {hoveredNode === "passiv" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9, x: 10 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: 10 }}
+                    className="absolute right-[calc(100%+16px)] top-1/2 -translate-y-1/2 w-48 p-3 bg-zinc-900 border border-zinc-800 rounded-xl shadow-2xl pointer-events-none"
+                  >
+                    <p className="text-xs text-zinc-300 leading-relaxed">{nodeInfo.passiv.desc}</p>
+                    <div className="absolute left-full top-1/2 -translate-y-1/2 border-8 border-transparent border-l-zinc-800" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
+            <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">{nodeInfo.passiv.title}</span>
           </div>
 
           {/* Items / Shoes */}
-          <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${currentStep === 'buy' ? 'scale-125 z-40' : 'z-20'}`} style={{ left: '16%', top: '50%' }}>
-            <div className="relative w-10 h-10 md:w-14 md:h-14">
-              <Image src="/shoes-icon.png" alt="Schuhpaar" fill className={`object-contain transition-opacity duration-300 ${currentStep === 'buy' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
+          <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${currentStep === 'ship_pair' ? 'scale-125 z-40' : 'z-20'}`} style={{ left: '16%', top: '50%' }}>
+            <div className="relative w-8 h-8 md:w-12 md:h-12">
+              <Image src="/shoes-icon.png" alt="Schuhpaar" fill className={`object-contain transition-opacity duration-300 ${currentStep === 'ship_pair' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
             </div>
           </div>
 
