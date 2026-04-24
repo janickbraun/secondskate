@@ -69,11 +69,11 @@ export default function RoleGraphic() {
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center max-w-6xl mx-auto">
       {/* Graphic Side */}
-      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 pb-20 md:pb-6 border border-zinc-800 shadow-2xl md:min-h-0 md:aspect-[4/3] flex flex-col items-center justify-center overflow-hidden">
+      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 pb-24 md:pb-24 border border-zinc-800 shadow-2xl md:min-h-0 md:aspect-square lg:aspect-[3/2] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
-        <div className="relative w-full max-w-[600px] mt-4 md:mt-0" style={{ aspectRatio: '5/4' }}>
+        <div className="relative w-full max-w-[600px] mt-0 md:mt-[-40px]" style={{ aspectRatio: '5/4' }}>
           {/* SVG Lines */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
