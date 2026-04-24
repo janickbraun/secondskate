@@ -283,27 +283,46 @@ export default function RoleGraphic() {
             <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">{nodeInfo.passiv.title}</span>
           </div>
 
-          {/* Items / Shoes */}
-          <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${currentStep === 'ship_pair' ? 'scale-125 z-40' : 'z-20'}`} style={{ left: '16%', top: '50%' }}>
-            <div className="relative w-8 h-8 md:w-12 md:h-12">
+          {/* Left Shoe */}
+          <div 
+            className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out z-40 ${
+              currentStep === 'ship_pair' ? 'scale-125' : 'scale-100'
+            }`} 
+            style={{
+              left: (!currentStep || ['initial', 'pay_half', 'buy'].includes(currentStep)) ? '27%' : '38%',
+              top: (!currentStep || ['initial', 'pay_half', 'buy'].includes(currentStep)) ? '24%' : '82.5%'
+            }}
+          >
+            <div className="relative w-8 h-8 md:w-10 md:h-10">
               <Image 
-                src="/shoes-icon.png" 
-                alt="Schuhpaar" 
+                src="/shoes-icon-left.png" 
+                alt="Linker Schuh" 
                 fill 
-                sizes="(max-width: 768px) 32px, 48px"
-                className={`object-contain transition-opacity duration-300 ${currentStep === 'ship_pair' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} 
+                sizes="(max-width: 768px) 32px, 40px"
+                className={`object-contain transition-opacity duration-300 ${!currentStep || currentStep === 'pay_half' ? 'opacity-60 grayscale-[0.5]' : 'opacity-100'}`} 
               />
             </div>
           </div>
 
-          <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_single' ? 'scale-125' : ''}`} style={{ left: '60%', top: '80%' }}>
-            <Image 
-              src="/single-shoe-icon.png" 
-              alt="Einzelner Schuh" 
-              fill 
-              sizes="(max-width: 768px) 32px, 48px"
-              className={`object-contain rounded-lg transition-opacity duration-300 ${currentStep === 'ship_single' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} 
-            />
+          {/* Right Shoe */}
+          <div 
+            className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out z-40 ${
+              currentStep === 'ship_pair' || currentStep === 'ship_single' ? 'scale-125' : 'scale-100'
+            }`} 
+            style={{
+              left: (!currentStep || ['initial', 'pay_half', 'buy'].includes(currentStep)) ? '32%' : currentStep === 'ship_pair' ? '44%' : '82%',
+              top: (!currentStep || ['initial', 'pay_half', 'buy'].includes(currentStep)) ? '24%' : '82.5%'
+            }}
+          >
+            <div className="relative w-8 h-8 md:w-10 md:h-10">
+              <Image 
+                src="/shoes-icon-right.png" 
+                alt="Rechter Schuh" 
+                fill 
+                sizes="(max-width: 768px) 32px, 40px"
+                className={`object-contain transition-opacity duration-300 ${!currentStep || currentStep === 'pay_half' ? 'opacity-60 grayscale-[0.5]' : 'opacity-100'}`} 
+              />
+            </div>
           </div>
         </div>
 
