@@ -5,9 +5,19 @@ import { Download, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     if (isModalOpen) {
@@ -27,14 +37,13 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5"
-      >
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
-          <Link href="/" className="text-2xl sm:text-2xl font-bold tracking-tighter shrink-0 flex items-center gap-1.5 sm:gap-2">
+          <Link 
+            href="/" 
+            onClick={handleLogoClick}
+            className="text-2xl sm:text-2xl font-bold tracking-tighter shrink-0 flex items-center gap-1.5 sm:gap-2"
+          >
             <Image src="/secondskate-icon.svg" alt="secondskate Icon" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10" />
             <span>second<span className="text-primary">skate</span></span>
           </Link>
@@ -46,7 +55,7 @@ export default function Navbar() {
             <Download className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0" />
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
       <AnimatePresence>
         {isModalOpen && (

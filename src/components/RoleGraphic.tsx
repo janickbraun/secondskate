@@ -303,7 +303,7 @@ export default function RoleGraphic() {
                 alt="Linker Schuh" 
                 fill 
                 sizes="(max-width: 768px) 32px, 40px"
-                className={`object-contain transition-opacity duration-300 ${!currentStep || currentStep === 'pay_half' ? 'opacity-60 grayscale-[0.5]' : 'opacity-100'}`} 
+                className={`object-contain transition-opacity duration-300 ${!currentStep || ['initial', 'pay_half'].includes(currentStep) ? 'opacity-60 grayscale-[0.5]' : 'opacity-100'}`} 
               />
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function RoleGraphic() {
                 alt="Rechter Schuh" 
                 fill 
                 sizes="(max-width: 768px) 32px, 40px"
-                className={`object-contain transition-opacity duration-300 ${!currentStep || currentStep === 'pay_half' ? 'opacity-60 grayscale-[0.5]' : 'opacity-100'}`} 
+                className={`object-contain transition-opacity duration-300 ${!currentStep || ['initial', 'pay_half'].includes(currentStep) ? 'opacity-60 grayscale-[0.5]' : 'opacity-100'}`} 
               />
             </div>
           </div>
