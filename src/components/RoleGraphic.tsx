@@ -201,7 +201,15 @@ export default function RoleGraphic() {
           >
             <div className="relative">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
-                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain w-7 h-7 md:w-10 md:h-10" />
+                <Image 
+                  src="/secondskate-icon.svg" 
+                  alt="secondskate" 
+                  width={40} 
+                  height={40} 
+                  className="object-contain w-7 h-7 md:w-10 md:h-10" 
+                  style={{ height: 'auto' }}
+                  priority
+                />
               </div>
 
               <AnimatePresence>
@@ -278,12 +286,24 @@ export default function RoleGraphic() {
           {/* Items / Shoes */}
           <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${currentStep === 'ship_pair' ? 'scale-125 z-40' : 'z-20'}`} style={{ left: '16%', top: '50%' }}>
             <div className="relative w-8 h-8 md:w-12 md:h-12">
-              <Image src="/shoes-icon.png" alt="Schuhpaar" fill className={`object-contain transition-opacity duration-300 ${currentStep === 'ship_pair' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
+              <Image 
+                src="/shoes-icon.png" 
+                alt="Schuhpaar" 
+                fill 
+                sizes="(max-width: 768px) 32px, 48px"
+                className={`object-contain transition-opacity duration-300 ${currentStep === 'ship_pair' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} 
+              />
             </div>
           </div>
 
           <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 pointer-events-none transition-transform duration-300 ${currentStep === 'ship_single' ? 'scale-125' : ''}`} style={{ left: '60%', top: '80%' }}>
-            <Image src="/single-shoe-icon.png" alt="Einzelner Schuh" fill className={`object-contain rounded-lg transition-opacity duration-300 ${currentStep === 'ship_single' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} />
+            <Image 
+              src="/single-shoe-icon.png" 
+              alt="Einzelner Schuh" 
+              fill 
+              sizes="(max-width: 768px) 32px, 48px"
+              className={`object-contain rounded-lg transition-opacity duration-300 ${currentStep === 'ship_single' ? 'opacity-100' : 'opacity-60 grayscale-[0.5]'}`} 
+            />
           </div>
         </div>
 
