@@ -61,7 +61,7 @@ export default function RoleGraphic() {
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center max-w-6xl mx-auto">
       {/* Graphic Side */}
-      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 md:pb-24 border border-zinc-800 shadow-2xl md:aspect-square lg:aspect-[3/2] flex flex-col items-center justify-center overflow-hidden">
+      <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 md:pb-12 border border-zinc-800 shadow-2xl md:aspect-square lg:aspect-[3/2] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
@@ -173,8 +173,8 @@ export default function RoleGraphic() {
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <Store className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center transition-transform group-hover:scale-110">
+                <Store className="text-zinc-200 w-6 h-6 md:w-8 md:h-8" />
               </div>
               
               <AnimatePresence>
@@ -200,8 +200,8 @@ export default function RoleGraphic() {
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
-                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain w-8 h-8 md:w-10 md:h-10" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 p-3">
+                <Image src="/secondskate-icon.svg" alt="secondskate" width={40} height={40} className="object-contain w-7 h-7 md:w-10 md:h-10" />
               </div>
 
               <AnimatePresence>
@@ -227,8 +227,8 @@ export default function RoleGraphic() {
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center transition-transform group-hover:scale-110">
+                <User className="text-zinc-200 w-6 h-6 md:w-8 md:h-8" />
               </div>
 
               <AnimatePresence>
@@ -254,8 +254,8 @@ export default function RoleGraphic() {
             onMouseLeave={() => setHoveredNode(null)}
           >
             <div className="relative">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border-2 border-zinc-600 flex items-center justify-center transition-transform group-hover:scale-110">
-                <User className="text-zinc-200 w-7 h-7 md:w-8 md:h-8" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-zinc-900 border border-zinc-700 flex items-center justify-center transition-transform group-hover:scale-110">
+                <User className="text-zinc-200 w-6 h-6 md:w-8 md:h-8" />
               </div>
 
               <AnimatePresence>

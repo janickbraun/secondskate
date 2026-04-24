@@ -40,13 +40,13 @@ export default function HowItWorks() {
   };
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-12 bg-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">So einfach <span className="text-primary">funktioniert&apos;s</span></h2>
           </div>
 
-          <div className="mt-20 max-w-6xl mx-auto">
+          <div className="mt-8 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function HowItWorks() {
               transition={{ duration: 0.6 }}
             >
 
-            <div className="mb-16">
+            <div className="mb-8">
               <RoleGraphic />
             </div>
             
