@@ -18,7 +18,7 @@ export default function RoleGraphic() {
     { id: "buy", text: "3. Aktiv bestellt Paar von externem Shop (z.B. Blue Tomato)" },
     { id: "ship_pair", text: "4. Aktiv erhält das Paar, und behält seinen Schuh" },
     { id: "ship_single", text: "5. Aktiv schickt den einzelnen Schuh weiter" },
-    { id: "escrow_payout", text: "6. Aktiv erhält sein Geld, sobald der Schuh bei Passiv" }
+    { id: "escrow_payout", text: "6. Aktiv erhält sein Geld, sobald der Schuh bei Passiv ankommt" }
   ];
 
   const handleInteraction = (id: StepId) => {
