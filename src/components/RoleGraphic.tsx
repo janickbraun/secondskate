@@ -11,7 +11,7 @@ export default function RoleGraphic() {
   const [hoveredStep, setHoveredStep] = useState<StepId | null>(null);
   const [activeStep, setActiveStep] = useState<StepId | null>(null);
 
-  const currentStep = hoveredStep || activeStep;
+  const currentStep = activeStep;
 
   const stepsList: { id: StepId; text: string }[] = [
     { id: "pay_half", text: "1. Passiv zahlt 50%" },
@@ -91,13 +91,7 @@ export default function RoleGraphic() {
             </defs>
 
             {/* Group 1: Aktiv -> Shop (buy) */}
-            <g
-              className="pointer-events-auto cursor-pointer"
-              onMouseEnter={() => setHoveredStep("buy")}
-              onMouseLeave={() => setHoveredStep(null)}
-              onClick={() => handleInteraction("buy")}
-            >
-              <line x1="206" y1="265" x2="185" y2="165" stroke="transparent" strokeWidth="30" />
+            <g className="transition-all duration-300">
               <line
                 x1="206" y1="265" x2="185" y2="165"
                 stroke={currentStep === "buy" ? "#39FF14" : "#52525b"}
@@ -117,13 +111,7 @@ export default function RoleGraphic() {
             </g>
 
             {/* Group 2: Shop -> Aktiv (ship_pair) */}
-            <g
-              className="pointer-events-auto cursor-pointer"
-              onMouseEnter={() => setHoveredStep("ship_pair")}
-              onMouseLeave={() => setHoveredStep(null)}
-              onClick={() => handleInteraction("ship_pair")}
-            >
-              <line x1="146" y1="165" x2="167" y2="265" stroke="transparent" strokeWidth="30" />
+            <g className="transition-all duration-300">
               <line
                 x1="146" y1="165" x2="167" y2="265"
                 stroke={currentStep === "ship_pair" ? "#39FF14" : "#52525b"}
@@ -135,13 +123,7 @@ export default function RoleGraphic() {
             </g>
 
             {/* Group 3: Passiv -> Treuhand (pay_half) */}
-            <g
-              className="pointer-events-auto cursor-pointer"
-              onMouseEnter={() => setHoveredStep("pay_half")}
-              onMouseLeave={() => setHoveredStep(null)}
-              onClick={() => handleInteraction("pay_half")}
-            >
-              <line x1="475" y1="265" x2="437" y2="165" stroke="transparent" strokeWidth="30" />
+            <g className="transition-all duration-300">
               <line
                 x1="475" y1="265" x2="437" y2="165"
                 stroke={currentStep === "pay_half" ? "#39FF14" : "#52525b"}
@@ -161,13 +143,7 @@ export default function RoleGraphic() {
             </g>
 
             {/* Group 4: Treuhand -> Aktiv (escrow_payout) */}
-            <g
-              className="pointer-events-auto cursor-pointer"
-              onMouseEnter={() => setHoveredStep("escrow_payout")}
-              onMouseLeave={() => setHoveredStep(null)}
-              onClick={() => handleInteraction("escrow_payout")}
-            >
-              <line x1="378" y1="170" x2="250" y2="275" stroke="transparent" strokeWidth="30" />
+            <g className="transition-all duration-300">
               <line
                 x1="378" y1="170" x2="250" y2="275"
                 stroke={currentStep === "escrow_payout" ? "#39FF14" : "#52525b"}
@@ -187,15 +163,8 @@ export default function RoleGraphic() {
             </g>
 
             {/* Group 5: Aktiv -> Passiv (ship_single) */}
-            <g
-              className="pointer-events-auto cursor-pointer"
-              onMouseEnter={() => setHoveredStep("ship_single")}
-              onMouseLeave={() => setHoveredStep(null)}
-              onClick={() => handleInteraction("ship_single")}
-            >
-              <line x1="245" y1="320" x2="455" y2="320" stroke="transparent" strokeWidth="30" />
-              <line
-                x1="245" y1="320" x2="455" y2="320"
+            <g className="transition-all duration-300">
+              <line x1="245" y1="320" x2="455" y2="320"
                 stroke={currentStep === "ship_single" ? "#39FF14" : "#52525b"}
                 strokeWidth="3"
                 strokeLinecap="round"
@@ -380,8 +349,8 @@ export default function RoleGraphic() {
           <button
             key={step.id}
             onClick={() => handleInteraction(step.id)}
-            onMouseEnter={() => setHoveredStep(step.id)}
-            onMouseLeave={() => setHoveredStep(null)}
+            onMouseEnter={() => {}}
+            onMouseLeave={() => {}}
             className="flex gap-6 items-start text-left group relative outline-none"
           >
             {/* Timeline Line Segment (connecting to next) */}
