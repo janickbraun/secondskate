@@ -356,7 +356,7 @@ export default function RoleGraphic() {
             }`}
           >
             <ChevronLeft size={16} />
-            Vorherig
+            Zurück
           </button>
           <button 
             onClick={handleNext}
@@ -368,7 +368,7 @@ export default function RoleGraphic() {
             }`}
           >
             <span className="truncate">
-              {activeStep === "initial" ? "Starten" : "Nächster"}
+              {activeStep === "initial" ? "Starten" : "Weiter"}
             </span>
             <ChevronRight size={16} />
           </button>
