@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Store, User, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { Store, User, ShieldCheck, ChevronLeft, ChevronRight, Euro } from "lucide-react";
 import Image from "next/image";
 
 type StepId = "initial" | "buy" | "ship_pair" | "pay_half" | "ship_single" | "escrow_payout";
@@ -15,10 +15,10 @@ export default function RoleGraphic() {
   const stepsList: { id: StepId; text: string }[] = [
     { id: "initial", text: "1. Aktiv will den linken Schuh, Passiv den rechten Schuh" },
     { id: "pay_half", text: "2. Passiv zahlt 50% des Gesamtpreises" },
-    { id: "buy", text: "3. Aktiv bestellt Paar von Shop (z.B. Blue Tomato)" },
+    { id: "buy", text: "3. Aktiv bestellt Paar von externem Shop (z.B. Blue Tomato)" },
     { id: "ship_pair", text: "4. Aktiv erhält das Paar, und behält seinen Schuh" },
     { id: "ship_single", text: "5. Aktiv schickt den einzelnen Schuh weiter" },
-    { id: "escrow_payout", text: "6. Aktiv erhält sein Geld, sobald der Schuh bei Passiv ankam." }
+    { id: "escrow_payout", text: "6. Aktiv erhält sein Geld, sobald der Schuh bei Passiv" }
   ];
 
   const handleInteraction = (id: StepId) => {
@@ -93,13 +93,6 @@ export default function RoleGraphic() {
                 markerEnd={currentStep === "buy" ? "url(#arrowhead-primary)" : "url(#arrowhead-zinc)"}
                 className="transition-all duration-300"
               />
-              <text
-                x="205" y="210"
-                fill={currentStep === "buy" ? "#39FF14" : "#a1a1aa"}
-                className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
-              >
-                100%
-              </text>
             </g>
 
             {/* Group 2: Shop -> Aktiv (ship_pair) */}
@@ -125,13 +118,6 @@ export default function RoleGraphic() {
                 markerEnd={currentStep === "pay_half" ? "url(#arrowhead-primary)" : "url(#arrowhead-zinc)"}
                 className="transition-all duration-300"
               />
-              <text
-                x="465" y="210"
-                fill={currentStep === "pay_half" ? "#39FF14" : "#a1a1aa"}
-                className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
-              >
-                50%
-              </text>
             </g>
 
             {/* Group 4: Treuhand -> Aktiv (escrow_payout) */}
@@ -145,13 +131,6 @@ export default function RoleGraphic() {
                 markerEnd={currentStep === "escrow_payout" ? "url(#arrowhead-primary)" : "url(#arrowhead-zinc)"}
                 className="transition-all duration-300"
               />
-              <text
-                x="350" y="210"
-                fill={currentStep === "escrow_payout" ? "#39FF14" : "#a1a1aa"}
-                className="text-[15px] sm:text-[16px] md:text-[14px] font-bold transition-colors duration-300"
-              >
-                50%
-              </text>
             </g>
 
             {/* Group 5: Aktiv -> Passiv (ship_single) */}
@@ -281,6 +260,31 @@ export default function RoleGraphic() {
               </AnimatePresence>
             </div>
             <span className="text-zinc-400 text-[10px] md:text-sm mt-2 font-bold group-hover:text-zinc-200 transition-colors whitespace-nowrap">{nodeInfo.passiv.title}</span>
+          </div>
+
+          {/* Animated Euro Passiv */}
+          <div 
+            className={`absolute z-50 transition-all duration-700 ease-in-out -translate-x-1/2 -translate-y-1/2 ml-6 -mt-7 md:ml-8 md:-mt-10 ${
+              (!currentStep || currentStep === 'initial') ? "left-[90%] top-[82.5%]" 
+                : currentStep === 'escrow_payout' ? "left-[30%] top-[82.5%]" 
+                : "left-[72%] top-[22.5%] md:top-[28%]"
+            }`}
+          >
+            <div className="p-1 rounded-full bg-zinc-950 border border-zinc-700 shadow-xl text-white">
+              <Euro className="w-3 h-3 md:w-4 md:h-4" />
+            </div>
+          </div>
+
+          {/* Animated Euro Aktiv (double) */}
+          <div 
+            className={`absolute z-50 transition-all duration-700 ease-in-out -translate-x-1/2 -translate-y-1/2 ml-6 -mt-7 md:ml-8 md:-mt-10 ${
+              (!currentStep || ['initial', 'pay_half'].includes(currentStep)) ? "left-[30%] top-[82.5%]" 
+                : "left-[20%] top-[22.5%] md:top-[28%]"
+            }`}
+          >
+            <div className="p-1 rounded-full bg-zinc-950 border border-zinc-700 shadow-xl text-white">
+              <Euro className="w-3 h-3 md:w-4 md:h-4" />
+            </div>
           </div>
 
           {/* Left Shoe */}
