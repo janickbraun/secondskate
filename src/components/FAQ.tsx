@@ -74,7 +74,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="pt-12 pb-24 bg-background relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

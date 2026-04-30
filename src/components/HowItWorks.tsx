@@ -40,13 +40,13 @@ export default function HowItWorks() {
   };
 
   return (
-    <section className="py-12 bg-background relative overflow-hidden">
+    <section className="pt-12 pb-6 bg-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-8">
+          <div className="text-center max-w-4xl mx-auto mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">So einfach <span className="text-primary">funktioniert&apos;s</span></h2>
           </div>
 
-          <div className="mt-8 max-w-6xl mx-auto">
+          <div className="mt-8 max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -58,57 +58,75 @@ export default function HowItWorks() {
               <RoleGraphic />
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                    <User size={20} />
+            <div className="mt-16 bg-zinc-900/10 border border-zinc-800/50 rounded-[2.5rem] overflow-hidden backdrop-blur-sm">
+              <div className="grid grid-cols-2">
+                {/* Aktiv Side */}
+                <div className="p-6 sm:p-14 border-r border-zinc-800/50 flex flex-col">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-6">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <User size={18} className="sm:w-6 sm:h-6" />
+                    </div>
+                    <h4 className="text-xl sm:text-4xl font-bold tracking-tight">Aktiv</h4>
                   </div>
-                  <h4 className="text-2xl font-bold">Aktiv</h4>
-                </div>
-                <p className="text-muted-foreground mb-6">
-                  Du bestellst das Paar Schuhe bei einer Plattform deiner Wahl (z.B. Blue Tomato). 
-                </p>
-                <ul className="space-y-4 text-muted-foreground">
-                  <li className="flex gap-3 text-sm">
-                    <span className="text-primary">✓</span>
-                    <span>Du erhältst den Schuh zuerst</span>
-                  </li>
-                  <li className="flex gap-3 text-sm">
-                    <span className="text-primary">✓</span>
-                    <span>Geringere Versandkosten</span>
-                  </li>
-                  <li className="flex gap-3 text-sm p-4 bg-zinc-950/50 rounded-xl border border-white/5">
-                    <span className="text-primary font-bold">Tipp:</span>
-                    <span>Bestellung an Poststation liefern lassen, eigenen Schuh entnehmen und Paket direkt wieder abgeben. Keine neue Verpackung nötig!</span>
-                  </li>
-                </ul>
-              </div>
+                  
+                  <p className="text-sm sm:text-lg text-zinc-400 mb-10 leading-relaxed max-w-md">
+                    Du bestellst das Paar, behältst deinen Schuh und schickst den Rest direkt weiter.
+                  </p>
 
-              <div className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400">
-                    <User size={20} />
+                  <ul className="space-y-4 sm:space-y-6">
+                    {[
+                      "Schuh zuerst erhalten",
+                      "Niedrige Versandkosten",
+                      "Keine neue Verpackung"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-base text-zinc-300">
+                        <span className="text-primary font-bold">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto pt-10">
+                    <p className="text-[10px] sm:text-sm text-zinc-500 italic">
+                      <span className="text-primary font-bold not-italic mr-1">Tipp:</span>
+                      An Poststation liefern & direkt wieder abgeben.
+                    </p>
                   </div>
-                  <h4 className="text-2xl font-bold">Passiv</h4>
                 </div>
-                <p className="text-muted-foreground mb-6">
-                  Du zahlst 50% des Preises vorab in das sichere Treuhandsystem ein.
-                </p>
-                <ul className="space-y-4 text-muted-foreground">
-                  <li className="flex gap-3 text-sm">
-                    <span className="text-primary">✓</span>
-                    <span>Maximale Bequemlichkeit: Haustürlieferung</span>
-                  </li>
-                  <li className="flex gap-3 text-sm">
-                    <span className="text-primary">✓</span>
-                    <span>Kein Aufwand mit Bestellung bei Drittshops</span>
-                  </li>
-                  <li className="flex gap-4 items-center p-4 bg-zinc-950/50 rounded-xl border border-white/5 mt-auto">
-                    <div className="text-primary"><Info size={20} /></div>
-                    <span className="text-xs">Sicherheit durch Treuhand-Garantie für beide Seiten. Fair und sicher.</span>
-                  </li>
-                </ul>
+
+                {/* Passiv Side */}
+                <div className="p-6 sm:p-14 flex flex-col bg-zinc-900/5">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-6">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl bg-zinc-800/50 flex items-center justify-center text-zinc-400">
+                      <User size={18} className="sm:w-6 sm:h-6" />
+                    </div>
+                    <h4 className="text-xl sm:text-4xl font-bold tracking-tight">Passiv</h4>
+                  </div>
+
+                  <p className="text-sm sm:text-lg text-zinc-400 mb-10 leading-relaxed max-w-md">
+                    Du zahlst deinen Schuh vorab und erhältst ihn bequem per Haustürlieferung.
+                  </p>
+
+                  <ul className="space-y-4 sm:space-y-6">
+                    {[
+                      "Maximaler Komfort",
+                      "Treuhand-Sicherheit",
+                      "Kein Shop-Aufwand"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-base text-zinc-300">
+                        <span className="text-zinc-500 font-bold">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto pt-10">
+                    <p className="text-[10px] sm:text-sm text-zinc-500 italic">
+                      <span className="text-zinc-300 font-bold not-italic mr-1">Sicherheit:</span>
+                      Auszahlung erst bei Erhalt des Schuhs.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

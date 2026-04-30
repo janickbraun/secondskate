@@ -59,7 +59,7 @@ export default function RoleGraphic() {
   const [hoveredNode, setHoveredNode] = useState<keyof typeof nodeInfo | null>(null);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-center max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row gap-8 items-center max-w-7xl mx-auto">
       {/* Graphic Side */}
       <div className="w-full md:w-[65%] relative bg-zinc-950/80 rounded-3xl p-4 sm:p-6 md:pb-12 border border-zinc-800 shadow-2xl md:aspect-square lg:aspect-[3/2] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Grid */}
@@ -147,7 +147,7 @@ export default function RoleGraphic() {
 
           {/* Nodes */}
           <div 
-            className={`absolute left-[20%] top-[22.5%] md:top-[28%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "shop" ? "z-50" : "z-30"}`}
+            className={`absolute left-[20%] top-[22.5%] md:top-[28%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "shop" ? "z-30" : "z-10"}`}
             onMouseEnter={() => setHoveredNode("shop")}
             onMouseLeave={() => setHoveredNode(null)}
           >
@@ -174,7 +174,7 @@ export default function RoleGraphic() {
           </div>
 
           <div 
-            className={`absolute left-[72%] top-[22.5%] md:top-[28%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "secondskate" ? "z-50" : "z-30"}`}
+            className={`absolute left-[72%] top-[22.5%] md:top-[28%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "secondskate" ? "z-30" : "z-10"}`}
             onMouseEnter={() => setHoveredNode("secondskate")}
             onMouseLeave={() => setHoveredNode(null)}
           >
@@ -209,7 +209,7 @@ export default function RoleGraphic() {
           </div>
 
           <div 
-            className={`absolute left-[30%] top-[82.5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "aktiv" ? "z-50" : "z-30"}`}
+            className={`absolute left-[30%] top-[82.5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "aktiv" ? "z-30" : "z-10"}`}
             onMouseEnter={() => setHoveredNode("aktiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
@@ -236,7 +236,7 @@ export default function RoleGraphic() {
           </div>
 
           <div 
-            className={`absolute left-[90%] top-[82.5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "passiv" ? "z-50" : "z-30"}`}
+            className={`absolute left-[90%] top-[82.5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-all ${hoveredNode === "passiv" ? "z-30" : "z-10"}`}
             onMouseEnter={() => setHoveredNode("passiv")}
             onMouseLeave={() => setHoveredNode(null)}
           >
@@ -264,7 +264,7 @@ export default function RoleGraphic() {
 
           {/* Animated Euro Passiv */}
           <div 
-            className={`absolute z-50 transition-all duration-700 ease-in-out -translate-x-1/2 -translate-y-1/2 ml-6 -mt-7 md:ml-8 md:-mt-10 ${
+            className={`absolute z-30 transition-all duration-700 ease-in-out -translate-x-1/2 -translate-y-1/2 ml-6 -mt-7 md:ml-8 md:-mt-10 ${
               (!currentStep || currentStep === 'initial') ? "left-[90%] top-[82.5%]" 
                 : currentStep === 'escrow_payout' ? "left-[30%] top-[82.5%]" 
                 : "left-[72%] top-[22.5%] md:top-[28%]"
@@ -277,7 +277,7 @@ export default function RoleGraphic() {
 
           {/* Animated Euro Aktiv (double) */}
           <div 
-            className={`absolute z-50 transition-all duration-700 ease-in-out -translate-x-1/2 -translate-y-1/2 ml-6 -mt-7 md:ml-8 md:-mt-10 ${
+            className={`absolute z-30 transition-all duration-700 ease-in-out -translate-x-1/2 -translate-y-1/2 ml-6 -mt-7 md:ml-8 md:-mt-10 ${
               (!currentStep || ['initial', 'pay_half'].includes(currentStep)) ? "left-[30%] top-[82.5%]" 
                 : "left-[20%] top-[22.5%] md:top-[28%]"
             }`}
@@ -289,7 +289,7 @@ export default function RoleGraphic() {
 
           {/* Left Shoe */}
           <div 
-            className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out z-40 ${
+            className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out z-20 ${
               currentStep === 'ship_pair' ? 'scale-125' : 'scale-100'
             }`} 
             style={{
@@ -310,7 +310,7 @@ export default function RoleGraphic() {
 
           {/* Right Shoe */}
           <div 
-            className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out z-40 ${
+            className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out z-20 ${
               currentStep === 'ship_pair' || currentStep === 'ship_single' ? 'scale-125' : 'scale-100'
             }`} 
             style={{
@@ -331,7 +331,7 @@ export default function RoleGraphic() {
         </div>
 
         {/* Mobile Step Description Bubble */}
-        <div className="w-[270px] md:hidden z-40 transition-all duration-300 pointer-events-none mb-4 mx-auto">
+        <div className="w-[270px] md:hidden z-20 transition-all duration-300 pointer-events-none mb-4 mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep || "start"}
@@ -349,7 +349,7 @@ export default function RoleGraphic() {
         </div>
 
         {/* Navigation Buttons */}
-        <div className="relative md:absolute w-full flex justify-center gap-4 z-50 md:bottom-6">
+        <div className="relative md:absolute w-full flex justify-center gap-4 z-30 md:bottom-6">
           <button 
             onClick={handlePrev}
             disabled={activeStep === stepsList[0].id}
