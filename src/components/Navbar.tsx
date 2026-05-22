@@ -49,7 +49,7 @@ export default function Navbar() {
           </Link>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="bg-primary text-black font-semibold px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full flex items-center gap-1.5 sm:gap-2 hover:bg-primary-dark hover:scale-105 transition-all active:scale-95 shrink-0 whitespace-nowrap"
+            className="bg-primary text-black font-semibold px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full flex items-center gap-1.5 sm:gap-2 hover:bg-primary/90 hover:scale-105 transition-all active:scale-95 shrink-0 whitespace-nowrap"
           >
             <span>App holen</span>
             <Download className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0" />
@@ -72,7 +72,7 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg bg-zinc-950 border border-zinc-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center overflow-hidden"
+              className="relative w-full max-w-lg bg-zinc-950/80 backdrop-blur-xl border border-zinc-800/50 p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center overflow-hidden"
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px] -z-10 pointer-events-none" />
               
@@ -90,7 +90,7 @@ export default function Navbar() {
               
               <h2 className="text-2xl font-bold mb-2">Hol dir die App</h2>
               <p className="text-muted-foreground mb-8">
-                Lade dir secondskate herunter und finde deinen passenden Schuh. Egal ob Goofy oder Regular.
+                Lade dir secondskate runter und hol dir nur den Schuh, den du wirklich brauchst.
               </p>
 
               <div className="flex flex-col sm:flex-row w-full gap-4">

@@ -13,12 +13,12 @@ type FAQItemProps = {
 
 function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
   return (
-    <div className="border border-zinc-800 bg-zinc-900/50 rounded-2xl overflow-hidden hover:bg-zinc-900/80 transition-colors">
+    <div className="border border-zinc-800 bg-zinc-900/30 rounded-2xl overflow-hidden hover:bg-zinc-900/60 transition-colors duration-200">
       <button
         onClick={onClick}
         className="w-full flex justify-between items-center p-6 text-left cursor-pointer focus:outline-none"
       >
-        <span className="text-lg md:text-xl font-semibold">{question}</span>
+        <span className="text-lg md:text-xl font-semibold text-zinc-100">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -37,7 +37,7 @@ function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="p-6 pt-0 text-muted-foreground text-base leading-relaxed border-t border-zinc-800/50 mt-2">
+            <div className="p-6 pt-0 text-zinc-400 text-base leading-relaxed border-t border-zinc-800/40 mt-2">
               <div className="pt-4">{answer}</div>
             </div>
           </motion.div>
@@ -47,35 +47,31 @@ function FAQItem({ question, answer, isOpen, onClick }: FAQItemProps) {
   );
 }
 
+const FAQS = [
+  {
+    question: "Was passiert mit meinem Geld, wenn der andere den Schuh nicht abschickt?",
+    answer: "Wir nutzen ein sicheres Treuhandkonto (Stripe). Dein Geld geht nicht direkt an den anderen Skater, sondern wird von uns sicher verwahrt. Der andere Skater bekommt seinen Anteil erst ausgezahlt, wenn du in der App bestätigt hast, dass der Schuh sicher bei dir angekommen ist. Schickt er nichts, bekommst du dein Geld zurück."
+  },
+  {
+    question: "Wer bestellt das Paar Schuhe?",
+    answer: "Sobald ein Match zustande kommt, stimmen sich beide Nutzer ab: Wer macht Aktiv und wer macht Passiv?. Der aktive bestellt dann das Paar."
+  },
+  {
+    question: "Wie funktioniert der Versand und wer zahlt den Versand?",
+    answer: "Wenn du derjenige bist, der den Schuh empfängt (Passiv-User), zahlst du beim Match automatisch die Versandkosten (z.B. 5,49 € für ein versichertes DHL-Paket) mit. Der aktive User kauft mit diesem Geld das Versandlabel in seiner eigenen DHL App, gibt das Paket ab und trägt die Sendungsnummer in secondskate ein."
+  },
+  {
+    question: "Was ist, wenn mir der Schuh am Ende doch nicht passt?",
+    answer: "Da secondskate nur ein Vermittler, gibt es kein klassisches Rückgaberecht. Aber dadurch, dass du in den meisten Fällen einfach nur einen kaputten Schuh ersetzen möchtest, kennst du ja deine genaue Größe."
+  }
+];
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = [
-    {
-      question: "Wie funktioniert die App?",
-      answer: "Du lädst deinen noch intakten Schuh hoch und wählst deine Größe sowie Seite (Links/Rechts). Sobald jemand genau diesen Schuh braucht, könnt ihr euch vernetzen. Durch Filter für Goofy und Regular findest du schnell dein Match."
-    },
-    {
-      question: "Kostet die App etwas?",
-      answer: "Die App ist komplett kostenlos nutzbar. Auch das Einstellen deiner Schuhe kostet dich keinen Cent. Bei einem erfolgreichen Verkauf über unser System behalten wir lediglich eine minimale Pauschale ein, um die Serverkosten decken zu können."
-    },
-    {
-      question: "Ist der Versand sicher?",
-      answer: "Ja, der Versand ist direkt in ein sicheres Treuhand-System integriert. Sobald der Käufer den Artikel inklusive Versandkosten bezahlt, wird das Geld zunächst sicher über einen Zahlungsdienstleister einbehalten. Der Verkäufer erhält daraufhin automatisch einen QR-Code für DHL, Hermes, GLS oder DPD direkt in der App, mit dem er das Paket bequem verschickt. Erst wenn der Käufer den Erhalt des Schuhs bestätigt, wird der Kaufbetrag endgültig an den Verkäufer ausgeschüttet."
-    },
-    {
-      question: "Was wenn der Schuh nicht ankommt?",
-      answer: "Sollte der Schuh nicht bei dir ankommen, kannst du dich jederzeit über die App an den Support wenden. Der Fall wird dann geprüft und gemeinsam mit dir geklärt. Auf Secondskate gilt Käuferschutz, sodass du auf der sicheren Seite bist."
-    },
-    {
-      question: "Wie wird die Qualität der Schuhe gesichert?",
-      answer: "Jeder Verkäufer muss detaillierte Bilder aus mehreren Perspektiven hochladen und den Zustand angeben. Außerdem setzen wir auf ein Community-Bewertungssystem, damit Betrüger schnell aussortiert werden."
-    }
-  ];
-
   return (
-    <section className="pt-12 pb-24 bg-background relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="pt-16 pb-28 bg-background relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,23 +84,26 @@ export default function FAQ() {
           </h2>
         </motion.div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <FAQItem
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={openIndex === index}
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              />
-            </motion.div>
-          ))}
+        <div className="space-y-4 max-w-3xl mx-auto">
+          {FAQS.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <FAQItem
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={isOpen}
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

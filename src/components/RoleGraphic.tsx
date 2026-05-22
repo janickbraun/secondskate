@@ -365,16 +365,30 @@ export default function RoleGraphic() {
           <button 
             onClick={handleNext}
             disabled={activeStep === stepsList[stepsList.length - 1].id}
-            className={`flex items-center justify-center gap-2 w-[125px] py-2 border rounded-lg text-sm font-medium transition-colors ${
+            className={`flex items-center justify-center gap-2 w-[125px] py-2 border rounded-lg text-sm font-semibold transition-all duration-300 ${
               activeStep === stepsList[stepsList.length - 1].id
                 ? "bg-zinc-900 border-zinc-800 text-zinc-600 cursor-not-allowed opacity-50"
-                : "bg-[#39FF14]/10 border-[#39FF14]/30 hover:border-[#39FF14] hover:bg-[#39FF14]/20 text-[#39FF14]"
+                : "bg-primary border-transparent text-zinc-950 hover:bg-primary/90 shadow-[0_0_15px_rgba(57,255,20,0.35)] hover:shadow-[0_0_22px_rgba(57,255,20,0.6)] hover:scale-[1.03]"
             }`}
           >
             <span className="truncate">
               {activeStep === "initial" ? "Starten" : "Weiter"}
             </span>
-            <ChevronRight size={16} />
+            <motion.span
+              animate={activeStep === "initial" ? { x: [0, 5, 0] } : { x: 0 }}
+              transition={
+                activeStep === "initial"
+                  ? {
+                      repeat: Infinity,
+                      duration: 1.4,
+                      ease: "easeInOut",
+                    }
+                  : {}
+              }
+              className="flex items-center shrink-0"
+            >
+              <ChevronRight size={16} />
+            </motion.span>
           </button>
         </div>
       </div>

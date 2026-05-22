@@ -21,7 +21,7 @@ export default function CTA() {
             Bereit für den <span className="text-primary italic">Switch?</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Lade dir secondskate runter und finde deinen passenden Schuh.
+            Lade dir secondskate runter und hol dir nur den Schuh, den du wirklich brauchst.
           </p>
           <div className="relative inline-flex mx-auto group">
             {/* Animated shimmer glow */}
