@@ -1,8 +1,8 @@
 # secondskate Landingpage
 
-Dieses Repository enthält den Quellcode für die statische Landingpage der secondskate-App. Das Projekt ist als performante Single-Page-Application konzipiert und nutzt Next.js für Static Site Generation (SSG).
+Dieses Repository enthält den Quellcode für die Landingpage der secondskate-App. Das Projekt ist als performante Single-Page-Application konzipiert und nutzt Next.js für Static Site Generation (SSG).
 
-## 🛠 Tech Stack & Dependencies
+## Tech Stack & Dependencies
 
 * **Core Framework:** Next.js 14+
 * **Sprache:** TypeScript
