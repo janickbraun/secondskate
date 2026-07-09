@@ -13,14 +13,15 @@ export default function Impressum() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG</h2>
             <p className="mb-2">Janick Braun</p>
-            <p className="mb-2">Ruhe am Bach 5d</p>
+            <p className="mb-2">Krottenkopfstr. 24a</p>
             <p className="mb-2">82377 Penzberg</p>
+            <p className="mb-2">Deutschland</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">Kontakt</h2>
             <p className="mb-2">Telefon: +49 (0) 160 98640952</p>
-            <p className="mb-2">E-Mail: <a href="mailto:janick@secondskate.de" className="text-primary hover:underline">janick@secondskate.de</a></p>
+            <p className="mb-2">E-Mail: <a href="mailto:mail@janickbraun.com" className="text-primary hover:underline">mail@janickbraun.com</a></p>
           </section>
 
           {/*

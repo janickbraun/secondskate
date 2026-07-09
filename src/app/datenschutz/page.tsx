@@ -29,10 +29,11 @@ export default function Datenschutz() {
             <p className="mb-2">Die verantwortliche Stelle für die Datenverarbeitung ist:</p>
             <p className="mb-2 bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
               Janick Braun<br/>
-              Ruhe am Bach 5d<br/>
+              Krottenkopfstr. 24a<br/>
               82377 Penzberg<br/>
+              Deutschland<br/>
               Telefon: +49 (0) 160 98640952<br/>
-              E-Mail: <a href="mailto:janick@secondskate.de" className="text-primary hover:underline">janick@secondskate.de</a>
+              E-Mail: <a href="mailto:mail@janickbraun.com" className="text-primary hover:underline">mail@janickbraun.com</a>
             </p>
           </section>
 
